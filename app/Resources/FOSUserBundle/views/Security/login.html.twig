@@ -2,13 +2,7 @@
 
 {% block body %}
 
-
-
     <div class="login-box">
-
-        {% if error %}
-            <div class="alert alert-warning" role="alert">{{ error|trans({}, 'FOSUserBundle') }}</div>
-        {% endif %}
 
         <div class="login-logo">
             <a href="#"><b>Leaders Summit</b></a>
@@ -43,7 +37,7 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <input type="submit" class="btn btn-primary btn-block btn-flat" id="_submit" name="_submit"
+                        <input type="submit" class="btn btn-success btn-block btn-flat" id="_submit" name="_submit"
                                value="{{ 'Login'|trans({}, 'FOSUserBundle') }}"/>
                     </div>
                 </div>
@@ -52,5 +46,10 @@
             <a href="#">I forgot my password</a><br>
             <a href="register.html" class="text-center">Register a new membership</a>
         </div>
+
+        {% if error %}
+            <div class="alert alert-warning" role="alert">{{ error|trans({}, 'FOSUserBundle') }}</div>
+        {% endif %}
+
     </div>
 {% endblock body %}
