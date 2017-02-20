@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+    <div class="login-box">
+
+        {% if error %}
+            <div class="alert alert-warning" role="alert">{{ error|trans({}, 'FOSUserBundle') }}</div>
+        {% endif %}
+
+        <div class="login-logo">
+            <a href="#"><b>Leaders Summit</b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+
+            <form action="{{ path("fos_user_security_check") }}" method="post">
+                <div class="form-group has-feedback">
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required"
+                           class="form-control"/>
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" id="password" name="_password" required="required" class="form-control"/>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false"
+                                     style="position: relative;"><input type="checkbox" id="remember_me"
+                                                                        name="_remember_me" value="on"
+                                                                        style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                    <ins class="iCheck-helper"
+                                         style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </div>
+                                Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="submit" class="btn btn-primary btn-block btn-flat" id="_submit" name="_submit"
+                               value="{{ 'Login'|trans({}, 'FOSUserBundle') }}"/>
+                    </div>
+                </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+            </form>
+            <a href="#">I forgot my password</a><br>
+            <a href="register.html" class="text-center">Register a new membership</a>
+        </div>
+    </div>
+{% endblock body %}

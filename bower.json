@@ -1,0 +1,22 @@
+{
+  "name": "Globe Leaders Summit",
+  "authors": [
+    "Jasper Carpizo <jcarpizo@yondu.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "AdminLTE": "adminlte#^2.3.11",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
