@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Participant</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Employeeno</th>
+                <td>{{ participant.employeeNo }}</td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td>{{ participant.designation }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ participant.email }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ participant.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ participant.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Avatar</th>
+                <td>{{ participant.avatar }}</td>
+            </tr>
+            <tr>
+                <th>Mobileno</th>
+                <td>{{ participant.mobileNo }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ participant.gender }}</td>
+            </tr>
+            <tr>
+                <th>Googleid</th>
+                <td>{{ participant.googleId }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if participant.createdAt %}{{ participant.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if participant.updatedAt %}{{ participant.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Deletedat</th>
+                <td>{% if participant.deletedAt %}{{ participant.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ participant.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('participant_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('participant_edit', { 'id': participant.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

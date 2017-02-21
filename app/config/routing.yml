@@ -21,6 +21,10 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
+ls_participant:
+    resource: "@LSBundle/Resources/config/routing/participant.xml"
+    prefix:   /participant
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

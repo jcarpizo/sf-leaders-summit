@@ -1,0 +1,4 @@
+ls_participant:
+    resource: "@LSBundle/Resources/config/routing/participant.xml"
+    prefix:   /participant
+
