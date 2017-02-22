@@ -33,9 +33,6 @@
         <property name="gender">
             <constraint name="NotBlank"/>
         </property>
-        <property name="createdBy">
-            <constraint name="NotBlank"/>
-        </property>
     </class>
 
     <class name="Globe\LeadersSummitBundle\Entity\Feedback">
