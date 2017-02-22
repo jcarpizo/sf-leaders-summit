@@ -5,6 +5,9 @@
         http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
     <class name="Globe\LeadersSummitBundle\Entity\Participant">
+        <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
+            <option name="fields">email</option>
+        </constraint>
         <property name="employeeNo">
             <constraint name="NotBlank"/>
         </property>
