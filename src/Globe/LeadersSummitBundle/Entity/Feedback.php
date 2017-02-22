@@ -22,7 +22,7 @@ class Feedback
     /**
      * @var integer
      */
-    private $relavance;
+    private $relevance;
 
     /**
      * @var integer
@@ -107,14 +107,14 @@ class Feedback
     }
 
     /**
-     * Set relavance
+     * Set relevance
      *
-     * @param integer $relavance
+     * @param integer $relevance
      * @return Feedback
      */
-    public function setRelavance($relavance)
+    public function setRelevance($relevance)
     {
-        $this->relavance = $relavance;
+        $this->relevance = $relevance;
 
         return $this;
     }
@@ -124,9 +124,9 @@ class Feedback
      *
      * @return integer 
      */
-    public function getRelavance()
+    public function getRelevance()
     {
-        return $this->relavance;
+        return $this->relevance;
     }
 
     /**

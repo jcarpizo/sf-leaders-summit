@@ -32,7 +32,7 @@
                 <tr>
                     <td><a href="{{ path('feedback_show', { 'id': feedback.id }) }}">{{ feedback.feedback }}</a></td>
                     <td>{{ feedback.rating }}</td>
-                    <td>{{ feedback.relavance }}</td>
+                    <td>{{ feedback.relevance }}</td>
                     <td>{{ feedback.expectation }}</td>
                     <td>{{ feedback.quality }}</td>
                     <td>{% if feedback.createdAt %}{{ feedback.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>

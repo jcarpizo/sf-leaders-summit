@@ -13,7 +13,7 @@ class FeedbackType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('feedback')->add('rating')->add('relavance')->add('expectation')->add('quality');
+        $builder->add('feedback')->add('rating')->add('relevance')->add('expectation')->add('quality');
     }
     
     /**

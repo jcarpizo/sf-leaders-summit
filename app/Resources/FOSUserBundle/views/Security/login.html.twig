@@ -1,5 +1,4 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'LSBundle::base.html.twig' %}
 {% block body %}
 
     <div class="login-box">
@@ -37,7 +36,7 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <input type="submit" class="btn btn-success btn-block btn-flat" id="_submit" name="_submit"
+                        <input type="submit" class="btn btn-success btn-block btn-flat" id="_submit" nawme="_submit"
                                value="{{ 'Login'|trans({}, 'FOSUserBundle') }}"/>
                     </div>
                 </div>
@@ -52,4 +51,4 @@
         {% endif %}
 
     </div>
-{% endblock body %}
+{% endblock %}

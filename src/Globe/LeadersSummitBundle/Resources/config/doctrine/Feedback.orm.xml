@@ -9,7 +9,7 @@
     </id>
     <field name="feedback" type="integer" column="feedback" nullable="false"/>
     <field name="rating" type="integer" column="rating" nullable="false"/>
-    <field name="relavance" type="integer" column="relavance" nullable="false"/>
+    <field name="relevance" type="integer" column="relevance" nullable="false"/>
     <field name="expectation" type="integer" column="expectation" nullable="false"/>
     <field name="quality" type="integer" column="quality" nullable="false"/>
     <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
