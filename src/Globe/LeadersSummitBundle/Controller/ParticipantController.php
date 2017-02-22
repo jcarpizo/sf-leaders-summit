@@ -20,9 +20,11 @@ class ParticipantController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $participants = $em->getRepository('LSBundle:Participant')->findAll();
+        $participants = $em->getRepository('LSBundle:Participant')->findBy([
+            'deletedAt' => null
+        ]);
 
-        return $this->render('participant/index.html.twig', array(
+        return $this->render('LSBundle:Participant:index.html.twig', array(
             'participants' => $participants,
         ));
     }
@@ -39,13 +41,16 @@ class ParticipantController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $participant->setCreatedAt(new \DateTime());
+            $participant->setCreatedBy($this->getUser());
             $em->persist($participant);
             $em->flush($participant);
 
-            return $this->redirectToRoute('participant_show', array('id' => $participant->getId()));
+            //return $this->redirectToRoute('participant_show', array('id' => $participant->getId()));
+            return $this->redirectToRoute('participant_index');
         }
 
-        return $this->render('participant/new.html.twig', array(
+        return $this->render('LSBundle:Participant:new.html.twig', array(
             'participant' => $participant,
             'form' => $form->createView(),
         ));
@@ -59,7 +64,7 @@ class ParticipantController extends Controller
     {
         $deleteForm = $this->createDeleteForm($participant);
 
-        return $this->render('participant/show.html.twig', array(
+        return $this->render('LSBundle:Participant:show.html.twig', array(
             'participant' => $participant,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -76,12 +81,14 @@ class ParticipantController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $participant->setUpdatedAt(new \DateTime());
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('participant_edit', array('id' => $participant->getId()));
+            //return $this->redirectToRoute('participant_edit', array('id' => $participant->getId()));
+            return $this->redirectToRoute('participant_index');
         }
 
-        return $this->render('participant/edit.html.twig', array(
+        return $this->render('LSBundle:Participant:edit.html.twig', array(
             'participant' => $participant,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -99,7 +106,8 @@ class ParticipantController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($participant);
+            //$em->remove($participant);
+            $participant->setDeletedAt(new \DateTime());
             $em->flush($participant);
         }
 

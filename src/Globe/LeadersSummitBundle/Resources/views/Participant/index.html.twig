@@ -1,0 +1,51 @@
+{% extends 'LSBundle::layout.html.twig' %}
+{% block content %}
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Participants list</h3>
+            <a class="btn btn-primary pull-right" href="{{ path('participant_new') }}">Create a new participant</a>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <table class="table table">
+            <thead>
+            <tr>
+                <th>Employeeno</th>
+                <th>Designation</th>
+                <th>Email</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Avatar</th>
+                <th>Mobileno</th>
+                <th>Gender</th>
+                <th>Googleid</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for participant in participants %}
+                <tr>
+                    <td>
+                        <a href="{{ path('participant_edit', { 'id': participant.id }) }}">{{ participant.employeeNo }}</a>
+                    </td>
+                    <td>{{ participant.designation }}</td>
+                    <td>{{ participant.email }}</td>
+                    <td>{{ participant.firstName }}</td>
+                    <td>{{ participant.lastName }}</td>
+                    <td>{{ participant.avatar }}</td>
+                    <td>{{ participant.mobileNo }}</td>
+                    <td>{{ participant.gender }}</td>
+                    <td>{{ participant.googleId }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="{{ path('participant_edit', { 'id': participant.id }) }}">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

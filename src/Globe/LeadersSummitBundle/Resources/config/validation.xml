@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
+        http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+
+    <class name="Globe\LeadersSummitBundle\Entity\Participant">
+        <property name="employeeNo">
+            <constraint name="NotBlank"/>
+        </property>
+        <property name="designation">
+            <constraint name="NotBlank"/>
+        </property>
+        <property name="email">
+            <constraint name="NotBlank"/>
+            <constraint name="Email">
+                <option name="message">The email "{{ value }}" is not a valid email.</option>
+                <option name="checkMX">true</option>
+            </constraint>
+        </property>
+        <property name="firstName">
+            <constraint name="NotBlank"/>
+        </property>
+        <property name="lastName">
+            <constraint name="NotBlank"/>
+        </property>
+        <property name="avatar">
+            <constraint name="NotBlank"/>
+        </property>
+        <property name="mobileNo">
+            <constraint name="NotBlank"/>
+        </property>
+        <property name="gender">
+            <constraint name="NotBlank"/>
+        </property>
+    </class>
+</constraint-mapping>
