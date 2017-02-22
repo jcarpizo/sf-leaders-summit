@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="Globe\LeadersSummitBundle\Entity\Participant" table="participant">
+  <entity name="Globe\LeadersSummitBundle\Entity\Feedback" table="feedback">
     <indexes>
       <index name="created_by" columns="created_by"/>
     </indexes>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="employeeNo" type="string" column="employee_no" length="255" nullable="false"/>
-    <field name="designation" type="string" column="designation" length="255" nullable="false"/>
-    <field name="email" type="string" column="email" length="255" nullable="false"/>
-    <field name="firstName" type="string" column="first_name" length="255" nullable="false"/>
-    <field name="lastName" type="string" column="last_name" length="255" nullable="false"/>
-    <field name="avatar" type="string" column="avatar" length="255" nullable="false"/>
-    <field name="mobileNo" type="string" column="mobile_no" length="255" nullable="false"/>
-    <field name="gender" type="string" column="gender" length="255" nullable="false"/>
-    <field name="googleId" type="string" column="google_id" length="255" nullable="true"/>
+    <field name="feedback" type="integer" column="feedback" nullable="false"/>
+    <field name="rating" type="integer" column="rating" nullable="false"/>
+    <field name="relavance" type="integer" column="relavance" nullable="false"/>
+    <field name="expectation" type="integer" column="expectation" nullable="false"/>
+    <field name="quality" type="integer" column="quality" nullable="false"/>
     <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
     <field name="updatedAt" type="datetime" column="updated_at" nullable="true"/>
     <field name="deletedAt" type="datetime" column="deleted_at" nullable="true"/>

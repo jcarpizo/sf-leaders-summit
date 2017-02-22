@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Feedback</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Feedback</th>
+                <td>{{ feedback.feedback }}</td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>{{ feedback.rating }}</td>
+            </tr>
+            <tr>
+                <th>Relavance</th>
+                <td>{{ feedback.relavance }}</td>
+            </tr>
+            <tr>
+                <th>Expectation</th>
+                <td>{{ feedback.expectation }}</td>
+            </tr>
+            <tr>
+                <th>Quality</th>
+                <td>{{ feedback.quality }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if feedback.createdAt %}{{ feedback.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if feedback.updatedAt %}{{ feedback.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Deletedat</th>
+                <td>{% if feedback.deletedAt %}{{ feedback.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Createdby</th>
+                <td>{{ feedback.createdBy }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ feedback.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('feedback_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('feedback_edit', { 'id': feedback.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'LSBundle::layout.html.twig' %}
+{% block content %}
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Feedbacks list</h3>
+            <a class="btn btn-primary pull-right" href="{{ path('feedback_new') }}">Create a new feedback</a>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Feedback</th>
+                <th>Rating</th>
+                <th>Relavance</th>
+                <th>Expectation</th>
+                <th>Quality</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Deletedat</th>
+                <th>Createdby</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for feedback in feedbacks %}
+                <tr>
+                    <td><a href="{{ path('feedback_show', { 'id': feedback.id }) }}">{{ feedback.feedback }}</a></td>
+                    <td>{{ feedback.rating }}</td>
+                    <td>{{ feedback.relavance }}</td>
+                    <td>{{ feedback.expectation }}</td>
+                    <td>{{ feedback.quality }}</td>
+                    <td>{% if feedback.createdAt %}{{ feedback.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if feedback.updatedAt %}{{ feedback.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if feedback.deletedAt %}{{ feedback.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ feedback.createdBy }}</td>
+                    <td>{{ feedback.id }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('feedback_show', { 'id': feedback.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('feedback_edit', { 'id': feedback.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

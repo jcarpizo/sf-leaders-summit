@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="feedback_index" path="/" methods="GET">
+        <default key="_controller">LSBundle:Feedback:index</default>
+    </route>
+
+    <route id="feedback_show" path="/{id}/show" methods="GET">
+        <default key="_controller">LSBundle:Feedback:show</default>
+    </route>
+
+    <route id="feedback_new" path="/new" methods="GET|POST">
+        <default key="_controller">LSBundle:Feedback:new</default>
+    </route>
+
+    <route id="feedback_edit" path="/{id}/edit" methods="GET|POST">
+        <default key="_controller">LSBundle:Feedback:edit</default>
+    </route>
+
+    <route id="feedback_delete" path="/{id}/delete" methods="DELETE">
+        <default key="_controller">LSBundle:Feedback:delete</default>
+    </route>
+
+</routes>

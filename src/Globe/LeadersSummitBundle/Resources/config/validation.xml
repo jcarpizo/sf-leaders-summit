@@ -33,5 +33,27 @@
         <property name="gender">
             <constraint name="NotBlank"/>
         </property>
+        <property name="createdBy">
+            <constraint name="NotBlank"/>
+        </property>
     </class>
+
+    <class name="Globe\LeadersSummitBundle\Entity\Feedback">
+        <property name="feedback">
+            <constraint name="NotBlank"/>
+        </property>
+        <property name="rating">
+            <constraint name="NotBlank"/>
+        </property>
+        <property name="relavance">
+            <constraint name="NotBlank"/>
+        </property>
+        <property name="expectation">
+            <constraint name="NotBlank"/>
+        </property>
+        <property name="quality">
+            <constraint name="NotBlank"/>
+        </property>
+    </class>
+
 </constraint-mapping>

@@ -1,0 +1,25 @@
+{% extends 'LSBundle::layout.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block content %}
+
+
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Feedback creation</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="Create" class="btn btn-primary pull-right" />
+            {{ form_end(form) }}
+            <a class="btn btn-primary pull-left" href="{{ path('feedback_index') }}">Back to the list</a>
+        </div>
+    </div>
+{% endblock %}

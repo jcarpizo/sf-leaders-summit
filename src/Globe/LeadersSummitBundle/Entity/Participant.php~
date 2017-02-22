@@ -372,7 +372,7 @@ class Participant
      * @param \Globe\LeadersSummitBundle\Entity\User $createdBy
      * @return Participant
      */
-    public function setCreatedBy(\Globe\LeadersSummitBundle\Entity\User $createdBy)
+    public function setCreatedBy(\Globe\LeadersSummitBundle\Entity\User $createdBy = null)
     {
         $this->createdBy = $createdBy;
 

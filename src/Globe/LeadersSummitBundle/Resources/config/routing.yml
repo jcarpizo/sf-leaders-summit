@@ -1,0 +1,4 @@
+ls_feedback:
+    resource: "@LSBundle/Resources/config/routing/feedback.xml"
+    prefix:   /feedback
+
