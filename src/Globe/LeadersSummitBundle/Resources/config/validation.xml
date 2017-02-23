@@ -27,9 +27,6 @@
         <property name="lastName">
             <constraint name="NotBlank"/>
         </property>
-        <property name="avatar">
-            <constraint name="NotBlank"/>
-        </property>
         <property name="mobileNo">
             <constraint name="NotBlank"/>
         </property>

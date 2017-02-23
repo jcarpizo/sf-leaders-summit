@@ -12,14 +12,14 @@
     <field name="email" type="string" column="email" length="255" nullable="false"/>
     <field name="firstName" type="string" column="first_name" length="255" nullable="false"/>
     <field name="lastName" type="string" column="last_name" length="255" nullable="false"/>
-    <field name="avatar" type="string" column="avatar" length="255" nullable="false"/>
+    <field name="avatar" type="string" column="avatar" length="255" nullable="true"/>
     <field name="mobileNo" type="string" column="mobile_no" length="255" nullable="false"/>
     <field name="gender" type="string" column="gender" length="255" nullable="false"/>
     <field name="googleId" type="string" column="google_id" length="255" nullable="true"/>
     <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
     <field name="updatedAt" type="datetime" column="updated_at" nullable="true"/>
     <field name="deletedAt" type="datetime" column="deleted_at" nullable="true"/>
-    <many-to-one field="createdBy" target-entity="User" fetch="EXTRA_LAZY">
+    <many-to-one field="createdBy" target-entity="User" >
       <join-columns>
         <join-column name="created_by" referenced-column-name="id"  nullable="false"/>
       </join-columns>

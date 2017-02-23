@@ -10,6 +10,7 @@
 
     <route id="feedback_show" path="/{id}/show" methods="GET">
         <default key="_controller">LSBundle:Feedback:show</default>
+        <requirement key="id">\d+</requirement>
     </route>
 
     <route id="feedback_new" path="/new" methods="GET|POST">
@@ -18,10 +19,12 @@
 
     <route id="feedback_edit" path="/{id}/edit" methods="GET|POST">
         <default key="_controller">LSBundle:Feedback:edit</default>
+        <requirement key="id">\d+</requirement>
     </route>
 
     <route id="feedback_delete" path="/{id}/delete" methods="DELETE">
         <default key="_controller">LSBundle:Feedback:delete</default>
+        <requirement key="id">\d+</requirement>
     </route>
 
 </routes>

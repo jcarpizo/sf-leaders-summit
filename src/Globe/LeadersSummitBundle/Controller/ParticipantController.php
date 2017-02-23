@@ -40,6 +40,18 @@ class ParticipantController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file  = $participant->getAvatar();
+
+            $fileName =  md5(uniqid()).'.'.$file->guessExtension();
+
+            $file->move(
+                $this->getParameter('avatar_directory'),
+                $fileName
+            );
+
+            $participant->setAvatar($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $participant->setCreatedAt(new \DateTime());
             $participant->setCreatedBy($this->getUser());
@@ -81,11 +93,24 @@ class ParticipantController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $file  = $participant->getAvatar();
+
+            if ($file !== null) {
+                $fileName =  md5(uniqid()).'.'.$file->guessExtension();
+
+                $file->move(
+                    $this->getParameter('avatar_directory'),
+                    $fileName
+                );
+                $participant->setAvatar($fileName);
+            }
+
             $participant->setUpdatedAt(new \DateTime());
             $this->getDoctrine()->getManager()->flush();
 
             //return $this->redirectToRoute('participant_edit', array('id' => $participant->getId()));
-            return $this->redirectToRoute('participant_index');
+            return $this->redirectToRoute('participant_index',array('participant' => $participant));
         }
 
         return $this->render('LSBundle:Participant:edit.html.twig', array(

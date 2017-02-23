@@ -10,6 +10,7 @@
 
     <route id="participant_show" path="/{id}/show" methods="GET">
         <default key="_controller">LSBundle:Participant:show</default>
+        <requirement key="id">\d+</requirement>
     </route>
 
     <route id="participant_new" path="/new" methods="GET|POST">
@@ -18,10 +19,12 @@
 
     <route id="participant_edit" path="/{id}/edit" methods="GET|POST">
         <default key="_controller">LSBundle:Participant:edit</default>
+        <requirement key="id">\d+</requirement>
     </route>
 
     <route id="participant_delete" path="/{id}/delete" methods="DELETE">
         <default key="_controller">LSBundle:Participant:delete</default>
+        <requirement key="id">\d+</requirement>
     </route>
 
 </routes>
